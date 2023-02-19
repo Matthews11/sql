@@ -29,7 +29,7 @@ CALL insertar("tv","disponible",300);
 
 drop procedure insertar;
 
-#triggers
+# triggers 
 
 DELIMITER $$
 create trigger mitabla_bu before|after insert|update|delete on miTabla for each row
