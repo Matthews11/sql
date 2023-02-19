@@ -44,7 +44,7 @@ BEGIN
 insert into lo (usuario) value (CURRENT_USER());
 END$$
 
-#funciones 
+# funciones 
 -- funcion suma 
 DELIMITER //
 create function suma(num1 int, num2 int) returns int
