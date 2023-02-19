@@ -43,3 +43,18 @@ create trigger logg before insert on miTabla for each row
 BEGIN 
 insert into lo (usuario) value (CURRENT_USER());
 END$$
+
+#funciones 
+-- funcion suma 
+DELIMITER //
+create function suma(num1 int, num2 int) returns int
+begin
+declare total int;
+set total = num1+num2; 
+return total;
+end //
+
+select suma(2,2);
+
+drop function suma;
+
