@@ -58,3 +58,32 @@ select suma(2,2);
 
 drop function suma;
 
+
+# plpgsql
+
+# funciones y trigger
+CREATE OR REPLACE FUNCTION public.edited_fecha_column()
+  RETURNS trigger AS
+$BODY$
+BEGIN
+    NEW. fecha_mod = now();
+    RETURN NEW;	
+END;
+$BODY$
+  LANGUAGE plpgsql;
+  
+  CREATE TRIGGER fecha_mod
+  BEFORE UPDATE
+  ON public.icv_cons
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.edited_fecha_column();
+  
+  # procedimiento almacenado
+  
+  create procedure "public".insertar(ss varchar(40))
+language plpgsql as $$
+begin
+insert into a (field) values (ss);
+end $$
+
+call "public".insertar('campo_3');
