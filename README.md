@@ -97,3 +97,13 @@ insert into a (field) values (ss);
 end $$
 
 call "public".insertar('campo_3');
+
+# vistas
+
+CREATE OR REPLACE VIEW v_ejemplo_11
+AS
+(
+    select * from productos
+);
+
+SELECT * FROM v_ejemplo_11;
