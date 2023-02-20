@@ -78,6 +78,16 @@ $BODY$
   FOR EACH ROW
   EXECUTE PROCEDURE public.edited_fecha_column();
   
+  
+  CREATE OR REPLACE FUNCTION ejemplo(numero integer) RETURNS integer AS $$  
+BEGIN 
+ RETURN numero*2;
+END;
+$$ LANGUAGE plpgsql;
+
+select ejemplo(2);
+  
+  
   # procedimiento almacenado
   
   create procedure "public".insertar(ss varchar(40))
